@@ -9,5 +9,4 @@ c.execute("INSERT INTO polls_question "
           "VALUES ('what is your name','{0}')".format(str(current)))
 
 
-
 conn.commit()

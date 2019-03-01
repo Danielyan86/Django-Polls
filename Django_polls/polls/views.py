@@ -6,7 +6,6 @@ from django.views import generic
 
 from .models import Question, Choice
 
-
 #
 # def index(request):
 #     # return HttpResponse("Hello, world. You're at the polls index.")
@@ -34,7 +33,10 @@ from .models import Question, Choice
 #
 # def vote(request, question_id):
 #     return HttpResponse("You're voting on question %s.".format(question_id))
-# 采用generic方法，进一步简化上面的代码
+
+'''采用generic方法，进一步简化上面的代码'''
+
+
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'

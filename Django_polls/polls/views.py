@@ -34,6 +34,7 @@ from .models import Question, Choice
 #
 # def vote(request, question_id):
 #     return HttpResponse("You're voting on question %s.".format(question_id))
+# 采用generic方法，进一步简化上面的代码
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
@@ -54,7 +55,7 @@ class ResultsView(generic.DetailView):
 
 
 def vote(request, question_id):
-    question = get_object_or_404(Question, pk=question_id)
+    question = get_object_or_404(Question, pk=question_id)  # 处理404返回页面
     try:
         selected_choice = question.choice_set.get(pk=request.POST['choice'])  # 找到对应的问题
     except (KeyError, Choice.DoesNotExist):

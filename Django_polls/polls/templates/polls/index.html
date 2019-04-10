@@ -4,6 +4,7 @@
         {#遍历latest_question_list里面的值#}
         {% for question in latest_question_list %}
             {#取出对应的值#}
+            {#使用 url 关键字，避免URL硬编码。 polls是命名空间#}
             <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
         {% endfor %}
     </ul>

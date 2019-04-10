@@ -2,7 +2,7 @@ import sqlite3
 import time
 
 
-class WriteDataIntoDb():
+class WriteDataIntoDb:
     current = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
     conn = sqlite3.connect('../Django_polls/db.sqlite3')
     c = conn.cursor()
@@ -26,4 +26,4 @@ class WriteDataIntoDb():
 
 if __name__ == '__main__':
     write_obj = WriteDataIntoDb()
-    write_obj.write_choice("方丈", 7)
+    write_obj.write_choice("小李子", 2)  # 第二个参数是问题的id

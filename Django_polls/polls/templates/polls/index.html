@@ -5,6 +5,7 @@
         {% for question in latest_question_list %}
             {#取出对应的值#}
             {#使用 url 关键字，避免URL硬编码。 polls是命名空间#}
+            {# 因为在 polls.urls 的 url() 函数中通过 name 参数为 URL 定义了名字，可以使用 {% url %} 标签代替它：#}
             <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
         {% endfor %}
     </ul>

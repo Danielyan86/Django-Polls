@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
 from . import views
 
 urlpatterns = [
     path('homepage/', views.homepage),
-    path('admin/', admin.site.urls),
-    path('polls/', include('polls.urls')),
+    path('admin/', admin.site.urls),  # 系统admin
+    path('polls/', include('polls.urls')),  # 导入二级路由
     path('', views.homepage, name="homepage"),
     # path('index/', include('polls.urls')),
 ]

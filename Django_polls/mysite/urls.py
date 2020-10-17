@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),  # 系统admin
     path('polls/', include('polls.urls')),  # 导入二级路由
     path('', views.homepage, name="homepage"),
+    path('index', views.homepage, name="homepage"),
     # path('index/', include('polls.urls')),
 ]

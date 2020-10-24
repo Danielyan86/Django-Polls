@@ -1,12 +1,12 @@
 # Create your views here.
-from django.http import HttpResponse, HttpResponseRedirect
+
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
+from django.utils import timezone
 from django.views import generic
 
 from .models import Question, Choice
-from django.utils import timezone
-from django.template import loader
 
 '''First version index'''
 '''没有实际功能，只是单纯返回传入的question_id'''
@@ -84,6 +84,8 @@ class IndexView(generic.ListView):
 
     def get_queryset(self):
         """Return the last five published questions."""
+        time = timezone.now()
+        Question(pub_date=time)
         return Question.objects.filter(pub_date__lte=timezone.now()).order_by('-pub_date')[:5]
 
 
